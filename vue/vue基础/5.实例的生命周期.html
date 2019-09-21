@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>5.实例的生命周期(钩子函数) | 用心</title>
+    <meta name="description" content="活着">
+    <link rel="icon" href="./press_avatar.png">
+    
+    <link rel="preload" href="/assets/css/0.styles.18be6571.css" as="style"><link rel="preload" href="/assets/js/app.314208ec.js" as="script"><link rel="preload" href="/assets/js/2.3dbe4ac7.js" as="script"><link rel="preload" href="/assets/js/32.31b3c7c5.js" as="script"><link rel="prefetch" href="/assets/js/10.09fa1052.js"><link rel="prefetch" href="/assets/js/11.d4f3cc01.js"><link rel="prefetch" href="/assets/js/12.845c0d45.js"><link rel="prefetch" href="/assets/js/13.3eea8c07.js"><link rel="prefetch" href="/assets/js/14.680482c3.js"><link rel="prefetch" href="/assets/js/15.0e1a4de8.js"><link rel="prefetch" href="/assets/js/16.c2b57ca6.js"><link rel="prefetch" href="/assets/js/17.f6d53abe.js"><link rel="prefetch" href="/assets/js/18.32518103.js"><link rel="prefetch" href="/assets/js/19.27feb172.js"><link rel="prefetch" href="/assets/js/20.06be6d6e.js"><link rel="prefetch" href="/assets/js/21.9e865467.js"><link rel="prefetch" href="/assets/js/22.630cda10.js"><link rel="prefetch" href="/assets/js/23.a9756b8d.js"><link rel="prefetch" href="/assets/js/24.eb4d423b.js"><link rel="prefetch" href="/assets/js/25.ab6e4013.js"><link rel="prefetch" href="/assets/js/26.6ef779c7.js"><link rel="prefetch" href="/assets/js/27.d15ed41b.js"><link rel="prefetch" href="/assets/js/28.086a9083.js"><link rel="prefetch" href="/assets/js/29.31e7789f.js"><link rel="prefetch" href="/assets/js/3.788b749c.js"><link rel="prefetch" href="/assets/js/30.78afe3a4.js"><link rel="prefetch" href="/assets/js/31.6fa1a3fc.js"><link rel="prefetch" href="/assets/js/33.3bd402a1.js"><link rel="prefetch" href="/assets/js/34.26464d62.js"><link rel="prefetch" href="/assets/js/35.4cd98e92.js"><link rel="prefetch" href="/assets/js/36.23ac981b.js"><link rel="prefetch" href="/assets/js/37.0b28d024.js"><link rel="prefetch" href="/assets/js/38.1fe985a9.js"><link rel="prefetch" href="/assets/js/39.6822d10c.js"><link rel="prefetch" href="/assets/js/4.14f39196.js"><link rel="prefetch" href="/assets/js/40.0ed7188a.js"><link rel="prefetch" href="/assets/js/41.6f24726d.js"><link rel="prefetch" href="/assets/js/42.54e402eb.js"><link rel="prefetch" href="/assets/js/43.54835e7c.js"><link rel="prefetch" href="/assets/js/44.df4c1b7e.js"><link rel="prefetch" href="/assets/js/45.0873fde0.js"><link rel="prefetch" href="/assets/js/46.4796fd27.js"><link rel="prefetch" href="/assets/js/47.e9efc34d.js"><link rel="prefetch" href="/assets/js/48.6a329478.js"><link rel="prefetch" href="/assets/js/49.173f63c6.js"><link rel="prefetch" href="/assets/js/5.38464c3f.js"><link rel="prefetch" href="/assets/js/50.864c3c6f.js"><link rel="prefetch" href="/assets/js/51.6a00893c.js"><link rel="prefetch" href="/assets/js/52.48b20bcd.js"><link rel="prefetch" href="/assets/js/6.e83a0ec3.js"><link rel="prefetch" href="/assets/js/7.1bd9d7d8.js"><link rel="prefetch" href="/assets/js/8.84adaaaa.js"><link rel="prefetch" href="/assets/js/9.0aada2c5.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.18be6571.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">用心</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Js</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Js_basis/" class="nav-link">Js基础</a></li><li class="dropdown-item"><!----> <a href="/Js_Advance/" class="nav-link">Js高级</a></li><li class="dropdown-item"><!----> <a href="/Js_bugs/" class="nav-link">Js问题整理</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Vue全家桶</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link router-link-active">vue</a></li><li class="dropdown-item"><!----> <a href="/vue-router/" class="nav-link">vue-router</a></li><li class="dropdown-item"><!----> <a href="/vuex/" class="nav-link">vuex</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">小程序</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/wx/minipro/1.拿什么写小程序.html" class="nav-link">小程序</a></li><li class="dropdown-item"><!----> <a href="/wx/minipub/" class="nav-link">公众号</a></li><li class="dropdown-item"><!----> <a href="/wx/wxgm/" class="nav-link">小游戏</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Js</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Js_basis/" class="nav-link">Js基础</a></li><li class="dropdown-item"><!----> <a href="/Js_Advance/" class="nav-link">Js高级</a></li><li class="dropdown-item"><!----> <a href="/Js_bugs/" class="nav-link">Js问题整理</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Vue全家桶</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link router-link-active">vue</a></li><li class="dropdown-item"><!----> <a href="/vue-router/" class="nav-link">vue-router</a></li><li class="dropdown-item"><!----> <a href="/vuex/" class="nav-link">vuex</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">小程序</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/wx/minipro/1.拿什么写小程序.html" class="nav-link">小程序</a></li><li class="dropdown-item"><!----> <a href="/wx/minipub/" class="nav-link">公众号</a></li><li class="dropdown-item"><!----> <a href="/wx/wxgm/" class="nav-link">小游戏</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Js</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>Js基础</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Js_basis/1.ES5.html" class="sidebar-link">1.ES5</a></li><li><a href="/Js_basis/2.ES6.html" class="sidebar-link">2.ES6</a></li><li><a href="/Js_basis/3.基础面试题.html" class="sidebar-link">3.基础面试题</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Js高级</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Js问题整理</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue-Router</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vuex</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>小程序</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_5-实例的生命周期-钩子函数"><a href="#_5-实例的生命周期-钩子函数" aria-hidden="true" class="header-anchor">#</a> 5.实例的生命周期(钩子函数)</h1> <h2 id="_5-1-钩子函数"><a href="#_5-1-钩子函数" aria-hidden="true" class="header-anchor">#</a> 5.1 钩子函数</h2> <ul><li>在程序执行到某一个时间点会自动调用的函数.统称为钩子</li></ul> <h2 id="_5-2-创建前后"><a href="#_5-2-创建前后" aria-hidden="true" class="header-anchor">#</a> 5.2 创建前后</h2> <div class="language-html line-numbers-mode"><pre class="language-html"><code>
+beforeCreate    创建前
+created         创建后
+
+定义: 组件内部函数,变量初始化完成前后自动调用
+
+场景: 
+    1.用于最早的获取组件数据,或者调用组件内方法请求后台数据等 初始化操作.
+    2.beforeCreate 可以在此时加一些loading效果，在created时进行移除
+
+这个阶段执行的内容:
+判断对象参数有无el属性,如果有就继续执行, 如果没有就报错停止代码,直到这个vue实例调用了$mount(el)方法
+
+注意:
+    1. 实例参数中有template,就会按照template编译render函数
+    2. 如果没有template参数,就会将外部HTML编译为模板
+    template参数中的结构 要比'#app'中的结构优先级高
+最后如果vue实例调用了render函数,最终生成的结构以render函数的参数为主.
+
+模板相关属性方法的优先级顺序为:  vm.render(结构参数) &gt; template参数选项 &gt; &quot;#app&quot;指定结构
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h2 id="_5-3-装载前后"><a href="#_5-3-装载前后" aria-hidden="true" class="header-anchor">#</a> 5.3 装载前后</h2> <div class="language-html line-numbers-mode"><pre class="language-html"><code>beforeMount:    挂载DOM前,    在此之前内存中vm的el属性值是undefined,也就是不存在真实的DOM结构
+mounted:        挂载DOM后     
+
+场景: 
+    1.mounted钩子中可以最早最完整的获取到真实的DOM结构, 使用第三方dom插件时(如Echarts),插件初始化操作在mounted中进行
+    2.mounted 当需要操作dom的时候执行，可以配合$.nextTick 使用进行单一事件对数据的更新后更新dom
+
+这个阶段执行内容:
+根据&quot;#app&quot;指向,把vue创建的结构替换掉之前的DOM结构
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h2 id="_5-4-更新前后"><a href="#_5-4-更新前后" aria-hidden="true" class="header-anchor">#</a> 5.4 更新前后</h2> <div class="language-html line-numbers-mode"><pre class="language-html"><code>beforeUpdate    数据更新前
+updated         数据更新后
+
+当vue发现data中的数据发生了改变，会触发对应组件的重新渲染
+
+场景: 
+    1. updated 当数据更新需要做统一业务处理的时候使用
+    2. 不要在update beforeUpdate修改不定数据，否则会引起死循环
+    3. updated 监听data里的所有的数据
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="_5-5-销毁前后"><a href="#_5-5-销毁前后" aria-hidden="true" class="header-anchor">#</a> 5.5 销毁前后</h2> <div class="language-html line-numbers-mode"><pre class="language-html"><code>beforeDestroy   实例销毁前
+destoryed       实例销毁后  调用后实例的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="_5-6-组件更新前后-组件缓存调用"><a href="#_5-6-组件更新前后-组件缓存调用" aria-hidden="true" class="header-anchor">#</a> 5.6 组件更新前后(组件缓存调用)</h2> <div class="language-html line-numbers-mode"><pre class="language-html"><code>activated       keep-alive 组件激活时调用
+deactivated 
+
+keep-alive 缓存组件时候调用
+
+注意:
+    1. 服务器端渲染期间不调用该生命周期
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">19/08/29: </span> <span class="time">8/25/2019, 6:03:20 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/vue/vue基础/4.vue基本语法.html" class="prev">
+          4.Vue基本语法
+        </a></span> <span class="next"><a href="/vue/vue基础/6.组件.html">
+          6.组件
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.314208ec.js" defer></script><script src="/assets/js/2.3dbe4ac7.js" defer></script><script src="/assets/js/32.31b3c7c5.js" defer></script>
+  </body>
+</html>
